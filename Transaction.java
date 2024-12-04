@@ -97,7 +97,7 @@ public class Transaction {
     	   }
     	   // Catch any IOException
       	 catch (IOException e) {
-               System.out.println("An error occurred while reading  transaction history. File may not exist.");
+               System.out.println("An error occurred while reading  transaction history. The file may not exist.");
                e.printStackTrace();
            }
     	   

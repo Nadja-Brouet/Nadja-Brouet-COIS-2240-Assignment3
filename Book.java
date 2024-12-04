@@ -1,41 +1,45 @@
 public class Book {
-    private int id;
-    private String title;
-    private boolean available;
+	private int id;
+	private String title;
+	private boolean available;
 
-    public Book(int id, String title) {
-        this.id = id;
-        this.title = title;
-        this.available = true;
-    }
+	public Book(int id, String title) throws Exception {
 
-    // Getter methods
-    public int getId() {
-        return id;
-    }
+		if (!isValidId(id)) {
+			throw new Exception("Invalid book ID");
+		}
+		this.id = id;
+		this.title = title;
+		this.available = true;
+	}
 
-    public String getTitle() {
-        return title;
-    }
+	// Getter methods
+	public int getId() {
+		return id;
+	}
 
-    public boolean isAvailable() {
-        return available;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    // Method to borrow the book
-    public void borrowBook() {
-        if (available) {
-            available = false;
-        }
-    }
+	public boolean isAvailable() {
+		return available;
+	}
 
-    // Method to return the book
-    public void returnBook() {
-        available = true;
-    }
+	// Method to borrow the book
+	public void borrowBook() {
+		if (available) {
+			available = false;
+		}
+	}
 
-    // Method to check if a book id is valid
-    public boolean isValidId(int id) {
-        return id >= 100 && id <= 999;
-    }
+	// Method to return the book
+	public void returnBook() {
+		available = true;
+	}
+
+	// Method to check if a book id is valid
+	public boolean isValidId(int id) {
+		return id >= 100 && id <= 999;
+	}
 }
