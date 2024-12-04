@@ -77,5 +77,31 @@ public class Transaction {
          }
     	
     }
+    // Display transaction history 
+    public void displayTransactionHistory() {
+    	   try (BufferedReader readDetails = new BufferedReader(new FileReader("transactions.txt"))) {
+    		   String details;// string to store what is written in Transaction.txt file
+    		   System.out.println("\n--- Transaction History ---");
+    		   boolean hasTransactions = false;// declare no transactions until transaction details are checked and read in while loop
+    		   
+    		// Read each line from the file store in details String
+               while ((details = readDetails.readLine()) != null) {
+                   System.out.println(details);// print transaction detail 
+                   hasTransactions = true;// transaction.txt has saved transactions
+               }
+               // No Transactions
+               if (!hasTransactions) {
+                   System.out.println("No transactions found.");
+               }
+               System.out.println("----------------------------");
+    	   }
+    	   // Catch any IOException
+      	 catch (IOException e) {
+               System.out.println("An error occurred while reading  transaction history. File may not exist.");
+               e.printStackTrace();
+           }
+    	   
+    	
+    }
     
 }
