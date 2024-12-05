@@ -3,3 +3,5 @@
 2024-12-04 23:17:37 - Borrowing: Anne borrowed AI
 2024-12-04 23:18:55 - Returning: George returned Math
 2024-12-04 23:19:15 - Borrowing: Anne borrowed Math
+2024-12-04 23:33:17 - Borrowing: Jane Smith borrowed valid book 200
+2024-12-04 23:33:17 - Returning: Jane Smith returned valid book 200
