@@ -41,7 +41,7 @@ public class Transaction {
     }
 
     // Perform the returning of a book
-    public void returnBook(Book book, Member member) {
+    public boolean returnBook(Book book, Member member) {
         if (member.getBorrowedBooks().contains(book)) {
             member.returnBook(book);
             book.returnBook();
@@ -50,8 +50,11 @@ public class Transaction {
             
             // Save the transaction to a file
             saveTransaction(transactionDetails);
+            return true;
         } else {
             System.out.println("This book was not borrowed by the member.");
+            
+            return false;
         }
     }
 
@@ -67,8 +70,8 @@ public class Transaction {
     	// write saved transactions to transactions.txt file using
     	 try (BufferedWriter writeDetails = new BufferedWriter(new FileWriter("transactions.txt", true))) {// open buffered writer and file writer when opening fileWriter if file does not already exist create file
     		 
-             writeDetails.write(transactionDetails +"/n"); // Write the transaction details to the file
-     
+             writeDetails.write(transactionDetails); // Write the transaction details to the file
+             writeDetails.newLine();
          } 
     	 // Catch any IOException
     	 catch (IOException e) {
@@ -86,7 +89,7 @@ public class Transaction {
     		   
     		// Read each line from the file store in details String
                while ((details = readDetails.readLine()) != null) {
-                   System.out.println(details);// print transaction detail 
+                   System.out.println (details);// print transaction detail 
                    hasTransactions = true;// transaction.txt has saved transactions
                }
                // No Transactions

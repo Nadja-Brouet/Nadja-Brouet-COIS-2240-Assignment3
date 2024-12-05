@@ -54,7 +54,7 @@ public class LibraryManagement {
 				Book newBook = new Book(id, title);
 				library.addBook(newBook);
 				System.out.println("Book added to library successfully.");
-				} catch((Exception e) {
+				} catch(Exception e) {
 					// Catch the exception if book ID is invalid and print error message
 					System.out.println("Error: " + e.getMessage());
 				}
